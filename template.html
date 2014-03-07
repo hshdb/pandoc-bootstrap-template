@@ -10,7 +10,7 @@ $endfor$
 $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$$title-prefix$: $endif$$pagetitle$</title>
   <style type="text/css">code{white-space: pre;}</style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
@@ -31,11 +31,13 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
-  $if(title)$
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <div class="container">
-        <span class="doc-title">$title$</span>
+        <span class="doc-title">
+          $if(title-prefix)$<a href="/hshdb2014/" title="Hochschule Hannover (HsH) / Modul Digitale Bibliothek"
+            >$title-prefix$</a>$endif$$if(title)$: $title$$endif$
+        </span>
         <ul class="nav pull-right doc-info">
           $for(author)$
           <li><p class="navbar-text">$author$</p></li>
@@ -47,7 +49,7 @@ $endfor$
       </div>
     </div>
   </div>
-  $endif$
+
   <div class="container">
     <div class="row">
       $if(toc)$
@@ -69,6 +71,18 @@ $endfor$
       $include-after$
       $endfor$
       </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+     Bachelor Informationsmanagement / Modul Digitale Bibliothek (SS 2014)
+     Hochschschule Hannover (HsH)
+    </div>
+    <div>
+       <a href="//creativecommons.org/licenses/by-sa/4.0/"><img src="/hshdb2014/cc-by-sa.png" title="CC-BY-SA"></a> 
+       $if(date)$/ $date$$endif$ 
+       $for(author)$ / $author$ $endfor$
     </div>
   </div>
 </body>
